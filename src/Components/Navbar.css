@@ -38,3 +38,8 @@ a {
 .nav-items li a {
     margin-right: 4rem;
 }
+
+.active {
+    color:
+        #FA8860;
+}
