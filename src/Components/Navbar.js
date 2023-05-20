@@ -2,6 +2,7 @@ import React from 'react'
 import './Navbar.css'
 import {useState} from 'react';
 import Logo from '../Svgs/Logo.svg'
+import {FaTimes,FaBars} from 'react-icons/fa'
 
 const Navbar = () => {
   const [isActive1, setIsActive1] = useState(true);
@@ -25,19 +26,31 @@ const Navbar = () => {
     setIsActive4(true);
   };
 
-
+  const [isMobile, setIsMobile] = useState(false)
+  const handleClick=()=>{
+    if(isMobile)
+    setIsMobile(false);
+    else
+    setIsMobile(true);
+  }
   return (
     <>
     <div className='navbar'>
       <div className='logo'>
-        <img src={Logo} alt='logo' />
+        <img src={Logo} alt='logo' className='logo-resizer'/>
       </div>
-      <div className='nav-items'>
+      <div className={isMobile ? "nav-items-mobile" : "nav-items"} >
         <li><a href="/" className={isActive1 ? 'active' : ''} onClick={handleClick1}>Home</a></li>
         <li><a href="/" className={isActive2 ? 'active' : ''} onClick={handleClick2}>About Us</a></li>
         <li><a href="/" className={isActive3 ? 'active' : ''} onClick={handleClick3}>Events</a></li>
         <li><a href="/" className={isActive4 ? 'active' : ''} onClick={handleClick4}>Who are we</a></li>
-      </div>  
+      </div>
+      <button className='mobile-menu-icon' onClick={handleClick}>
+      {isMobile?
+                (<FaTimes size={20} style={{color:"white"}}/>):
+                (<FaBars size={20} style={{color:"white"}}/>)
+            }
+      </button>  
     </div>
     </>
   )
