@@ -1,7 +1,10 @@
-import Navbar from './Navbar'
-import Hero from './Hero'
-import WholeteamPage from './team2';
+import Navbar from './Navbar';
+import Hero from './Hero';
 import Info from './info';
+import News from './news';
+import WholeteamPage from './team2';
+import Getstarted from './Getstarted';
+import Footer from './footer';
 
 function App() {
   return (
@@ -10,7 +13,10 @@ function App() {
         <Navbar />
         <Hero />
         <Info />
+        <News />
         <WholeteamPage />
+        <Getstarted />
+        <Footer />
       </header>
     </div>
   );
